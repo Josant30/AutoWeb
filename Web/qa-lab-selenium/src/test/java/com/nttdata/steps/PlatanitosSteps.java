@@ -5,21 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-
 public class PlatanitosSteps {
-
     private WebDriver driver;
 
     //constructor
     public PlatanitosSteps(WebDriver driver){
         this.driver = driver;
     }
-    /**
-     * Escribir el usuario
-     * @param user el usuario
-     */
     public void typeUser(String user){
         WebElement userInputElement = driver.findElement(HomePage.ingCorreo);
         userInputElement.sendKeys(user);
@@ -40,6 +33,7 @@ public class PlatanitosSteps {
     public void seleccionarMenudeUsuario() {
         WebElement wawa = driver.findElement(HomePage.nombre);
         String textoNombre = wawa.getText();
+        //Comparamos que el nombre de la cuenta sea igual a mi nombre real, para confirmar el loggeo
         if (textoNombre.equals("Joseph Anthony Vasquez Moreno")) {
             System.out.println("Nombre validado");
         } else{
@@ -78,7 +72,7 @@ public class PlatanitosSteps {
     public void validarCarrito() {
         WebElement carritoElement = driver.findElement(HomePage.vrfCarrito);
 
-        // Validar que el elemento esté presente
+        // Validar que el elemento este presente, para validar el carrito
         if (carritoElement.isDisplayed()) {
             System.out.println("Se ha agregado al menos un producto al carrito.");
         } else {
